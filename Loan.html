@@ -1,0 +1,106 @@
+<!----Create a page to help a users decide if they can get a loan from the Diamond Lending Bank.-->
+
+<html>
+    <head>
+        <title>
+          Diamond Leanding Bank
+        </title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+            </script>
+            <script>
+
+$(function() {
+            $("form").submit(loanapproval);
+        });
+                function  loanapproval(){
+                  var  salary,credit,months,message;
+
+                  //Get the salary from input box with ID salary
+                   salary=$("#salary").val();
+
+                   // Get the credit from input box with ID credit
+                   credit=$("#credit").val();
+
+                   // Get the months from input box with ID months
+                   months=$("#months").val();
+
+
+                
+			
+				//PROGRAM LOGIC
+			
+			
+             // If the entire form was valid...
+
+			// Change the HTML of the <h2> with ID of "message" to
+			// "Approved "  or "Denied"
+                  
+                  
+                  if (salary>=40000)
+                  {
+                      if (credit>=600)
+                      {
+                          message="Your Loan is approved";
+
+                      }else if (months>12)
+                      
+                      {
+                        message="Your loan is approved";
+                      
+                      }
+                      else
+                      message="Denied";
+
+
+                  }
+                  else if (credit>=600)
+                  {
+                     if(months>12) 
+                     {
+                         message="Your loan is approved";
+
+                     }
+                     else
+                     message="Denied";
+
+                  }
+                  else
+                  {
+                      message="Denied";
+                  }
+
+                $("#message").html(message); 
+
+                // This prevents the form from submitting to a server
+                return  false;
+                }
+
+            </script>
+
+
+</head>
+<body>
+    <h1> Welcome to Diamond Lending Bank</h1>
+</body>
+<form>
+
+
+
+     <!---Step 2. Enter persons  information • Salary,Credit Score ,Total number of months at job.-->
+     <fieldset>
+        <legend>  Enter your  Information </legend>
+        Enter your Salary: $<input type="number" min=0  id="salary"  required> 
+        <br>
+        <br>
+        Enter your credit Score:<input type="number"  min=300 max= 850 id="credit " required>
+        <br>
+        <br>
+        Total number of Months at job:<input type ="number"   id="months" required>
+        <input type="submit">
+
+        
+</form>
+</fieldset>
+<h2 id =  "message" ></h2>
+    </html>
